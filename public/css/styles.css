@@ -1,0 +1,174 @@
+/* ===== BODY Y ESTILOS GENERALES ===== */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: #f0f8ff;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+h1 {
+    margin: 20px;
+    color: #0277bd;
+    font-size: 28px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+/* ===== TABLERO ===== */
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 120px);
+    gap: 20px;
+    justify-content: center;
+    margin: 20px auto;
+}
+
+/* HUECOS */
+.hole {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    overflow: hidden;
+}
+
+.hole-img {
+    width: 100%;
+    height: 100%;
+}
+
+/* TOPOS */
+.topo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: top 0.3s, transform 0.2s ease;
+    cursor: pointer;
+}
+
+.topo.active {
+    animation: bounce 0.4s;
+}
+
+@keyframes bounce {
+    0% { transform: translateY(20px); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0); }
+}
+
+/* ===== BOTÓN INICIAR ===== */
+#start-round-btn {
+    margin: 25px auto;
+    padding: 12px 25px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 8px;
+    border: none;
+    background: #0288d1;
+    color: #fff;
+    font-weight: bold;
+    box-shadow: 0 5px 8px rgba(0,0,0,0.2);
+    transition: background 0.3s, transform 0.2s;
+}
+
+#start-round-btn:hover {
+    background: #0277bd;
+    transform: scale(1.05);
+}
+
+/* ===== CONTENEDOR DE PREGUNTAS ===== */
+#question-container {
+    margin-top: 20px;
+    display: inline-block;
+    text-align: center;
+    width: 80%;
+    max-width: 500px;
+    background: rgba(255,255,255,0.95);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.15);
+}
+
+#question-text {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #01579b;
+}
+
+/* BOTONES DE OPCIÓN */
+.option-btn {
+    display: block;
+    margin: 10px auto;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px;
+    border: none;
+    background: #4caf50;
+    color: #fff;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.option-btn:hover {
+    background: #43a047;
+    transform: scale(1.03);
+}
+
+/* RESULTADOS DE RESPUESTA */
+.result {
+    font-weight: bold;
+    margin-top: 10px;
+    color: #d32f2f;
+    font-size: 16px;
+}
+
+/* PROGRESO DE PREGUNTA */
+#progress {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #555;
+}
+
+/* RESUMEN DE RONDA */
+#round-summary {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+    color: #1e90ff;
+    padding: 15px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.95);
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    display: inline-block;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 550px) {
+    .board {
+        grid-template-columns: repeat(3, 90px);
+        gap: 15px;
+    }
+    .hole {
+        width: 90px;
+        height: 90px;
+    }
+    .topo {
+        width: 100%;
+        height: 100%;
+    }
+    #start-round-btn {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+    #question-container, #round-summary {
+        width: 95%;
+        padding: 15px;
+    }
+    #question-text {
+        font-size: 16px;
+    }
+}
